@@ -12,18 +12,18 @@ Proyek flutter sebagai tugas mata kuliah Pemrograman Berbasis Platform (PBP) Gan
 * _Stateful widget_ adalah _widget_ yang menyimpan keadaan internal atau data yang dapat berubah (dinamis). Hal ini berarti setelah dibuat, tampilan dari _widget_ tersebut dapat berubah sepanjang siklus hidupnya. Contoh dari _stateful widget_ adalah InkWell dan Checkbox.
 
 ### 2. Sebutkan _widget_ apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
-i. MyApp - `StatelessWidget` sebagai root dari aplikasi Zalohra. _Widget_ ini menyimpan keseluruhan tema dan warna dari proyek ini.
-ii. MaterialApp - _Widget_ uatama yang mengelola pengaturan tema dan navigasi. `MaterialApp` menyediakan tema warna aplikasi dari Zalohra dan halaman `MyHomePage` sebagai halaman utama.
-iii. Scaffold - Menyediakan struktur dasar sebuah halaman. Hal ini memungkinkan untuk menentukan `AppBar`, `body`, dan berbagai bagian dari tata letak halaman.
-iv. AppBar - Menampilkan header atau judul halaman pada aplikasi.
-v. Padding - Memberikan jarak di sekitar _child widget_.
-vi. Column - Menyusun widget secara vertikal, sehingga elemen-elemen yang diletakkan di dalamnya akan ditampilkan dari atas ke bawah.
-vii. Row - Menyusun widget secara horizontal. Di dalam `Row`, tiga `InfoCard` ditempatkan berdampingan untuk menampilkan informasi pengguna seperti NPM, nama, dan kelas saya.
-viii. SizedBox - Memberikan ruang kosong vertikal dengan tinggi 16 piksel untuk jarak antar widget dalam `Column`.
-ix. GridView.count - Menyusun widget dalam bentuk grid. Diatur dalam tiga kolom untuk menampilkan daftar `ItemCard` sesuai item dalam list `items`.
-x. Card (di `InfoCard`) - Menyediakan kartu untuk menampilkan informasi pengguna.
-xi. InkWell - Membuat area yang dapat ditekan di `ItemCard`. Ketika ditekan, `InkWell` memunculkan snackbar dengan pesan berhasil.
-xii. SnackBar - Menampilkan notifikasi sementara di bagian bawah layar untuk memberikan umpan balik. Muncul saat `ItemCard` ditekan.
+* MyApp - `StatelessWidget` sebagai root dari aplikasi Zalohra. _Widget_ ini menyimpan keseluruhan tema dan warna dari proyek ini.
+* MaterialApp - _Widget_ uatama yang mengelola pengaturan tema dan navigasi. `MaterialApp` menyediakan tema warna aplikasi dari Zalohra dan halaman `MyHomePage` sebagai halaman utama.
+* Scaffold - Menyediakan struktur dasar sebuah halaman. Hal ini memungkinkan untuk menentukan `AppBar`, `body`, dan berbagai bagian dari tata letak halaman.
+* AppBar - Menampilkan header atau judul halaman pada aplikasi.
+* Padding - Memberikan jarak di sekitar _child widget_.
+* Column - Menyusun widget secara vertikal, sehingga elemen-elemen yang diletakkan di dalamnya akan ditampilkan dari atas ke bawah.
+* Row - Menyusun widget secara horizontal. Di dalam `Row`, tiga `InfoCard` ditempatkan berdampingan untuk menampilkan informasi pengguna seperti NPM, nama, dan kelas saya.
+* SizedBox - Memberikan ruang kosong vertikal dengan tinggi 16 piksel untuk jarak antar widget dalam `Column`.
+* GridView.count - Menyusun widget dalam bentuk grid. Diatur dalam tiga kolom untuk menampilkan daftar `ItemCard` sesuai item dalam list `items`.
+* Card (di `InfoCard`) - Menyediakan kartu untuk menampilkan informasi pengguna.
+* InkWell - Membuat area yang dapat ditekan di `ItemCard`. Ketika ditekan, `InkWell` memunculkan snackbar dengan pesan berhasil.
+* SnackBar - Menampilkan notifikasi sementara di bagian bawah layar untuk memberikan umpan balik. Muncul saat `ItemCard` ditekan.
 
 
 ### 3. Apa fungsi dari `setState()`? Jelaskan variabel apa saja yang dapat terdampak dengan fungsi tersebut.
