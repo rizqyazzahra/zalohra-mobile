@@ -4,6 +4,7 @@ Proyek flutter sebagai tugas mata kuliah Pemrograman Berbasis Platform (PBP) Gan
 
 ### Daftar Isi
 * [Tugas 7: Elemen Dasar Flutter](#tugas-7-elemen-dasar-flutter)
+* [Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements](#tugas-8-flutter-navigation-layouts-forms-and-input-elements)
 
 ---
 ## Tugas 7: Elemen Dasar Flutter
@@ -13,7 +14,7 @@ Proyek flutter sebagai tugas mata kuliah Pemrograman Berbasis Platform (PBP) Gan
 
 ### 2. Sebutkan _widget_ apa saja yang kamu gunakan pada proyek ini dan jelaskan fungsinya.
 * MyApp - `StatelessWidget` sebagai root dari aplikasi Zalohra. _Widget_ ini menyimpan keseluruhan tema dan warna dari proyek ini.
-* MaterialApp - _Widget_ uatama yang mengelola pengaturan tema dan navigasi. `MaterialApp` menyediakan tema warna aplikasi dari Zalohra dan halaman `MyHomePage` sebagai halaman utama.
+* MaterialApp - _Widget_ utama yang mengelola pengaturan tema dan navigasi. `MaterialApp` menyediakan tema warna aplikasi dari Zalohra dan halaman `MyHomePage` sebagai halaman utama.
 * Scaffold - Menyediakan struktur dasar sebuah halaman. Hal ini memungkinkan untuk menentukan `AppBar`, `body`, dan berbagai bagian dari tata letak halaman.
 * AppBar - Menampilkan header atau judul halaman pada aplikasi.
 * Padding - Memberikan jarak di sekitar _child widget_.
@@ -323,7 +324,40 @@ class ItemCard extends StatelessWidget {
 ---
 ## Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements
 ### 1. Apa kegunaan `const` di Flutter? Jelaskan apa keuntungan ketika menggunakan `const` pada kode Flutter. Kapan sebaiknya kita menggunakan `const`, dan kapan sebaiknya tidak digunakan?
+`const` di Flutter digunakan untuk membuat nilai atau _widget_ yang bersifat konstan dan tidak dapat berubah selama aplikasi berjalan, yang membuatnya hanya diinisialisasi sekali selama kompilasi. Hal ini berguna untuk meningkatkan performa aplikasi dengan menghemat memori dan mencegah _rebuild widget_ yang tidak perlu karena _widget_ bertanda `const` tidak akan di-_render_ ulang saat terjadi perubahan pada bagian lain dari _interface_. `const` cocok digunakan pada _widget_ statis, seperti teks atau ikon, yang tidak dipengaruhi oleh interaksi pengguna atau perubahan _state_. Dan tidak cocok digunakan untuk _widget_ yang dinamis atau dipengaruhi oleh variabel yang bisa berubah, seperti dalam `StatefulWidget`, karena _widget_ perlu diperbarui sesuai dengan perubahan data atau state yang terjadi.
+
 ### 2. Jelaskan dan bandingkan penggunaan _Column_ dan _Row_ pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+_Column_ adalah _widget_ yang digunakan untuk mengatur widget anak-anaknya secara vertikal, dari atas ke bawah. Cocok digunakan saat ingin menampilkan elemen-elemen dalam bentuk daftar ke bawah, sedangkan _Row_ digunakan untuk mengatur widget anak-anaknya secara horizontal, dari kiri ke kanan. Cocok digunakan ketika ingin menampilkan elemen-elemen secara berjajar, seperti ikon atau tombol.
+```dart
+child: Column(
+   crossAxisAlignment: CrossAxisAlignment.start,
+   children: [
+      Text('Product Name: $_productName'),
+      Text('Description: $_description'),
+      Text('Price: $_price'),
+      Text('Amount: $_amount'),
+      Text('Image URL: $_imageUrl')
+    ],
+),
+```
+```dart
+Row(
+   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+   children: [
+      InfoCard(title: 'NPM', content: npm),
+      InfoCard(title: 'Name', content: name),
+      InfoCard(title: 'Class', content: className),
+  ],
+),
+```
+
 ### 3. Sebutkan apa saja elemen input yang kamu gunakan pada halaman _form_ yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+Elemen input yang saya gunakan di halaman _form_, yaitu `TextFormField` yang digunakan sebagai input teks atribut produk (nama produk, deskripsi, harga, jumlah, URL gambar) dan `ElevatedButton` yang digunakan untuk tombol menyimpan data.
+
+Ada beberapa elemen input Flutter yang tidak saya gunakan, beberapa diantaranya adalah `Checkbox` untuk memilih atau tidak memilih suatu opsi, `Radio` untuk memilih satu opsi dari beberapa pilihan, `DropdownButtonFormField` untuk menampilkan pilihan dalam bentuk _dropdown_, `Switch` input untuk pilihan on/off, dan `Slider` untuk memilih nilai dalam rentang tertentu seperti ukuran.
+
 ### 4. Bagaimana cara kamu mengatur tema (_theme_) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+Saya mengatur tema aplikasi saya menggunakan `ThemeData` di root _widget_ `MaterialApp` pada berkas `main.dart`. Di bagian ini, saya menggunakan `colorScheme` untuk menentukan skema warna utama, dengan `primarySwatch` berwarna abu-abu dan warna sekunder yang lebih gelap (abu-abu tua).
+
 ### 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+Pada aplikasi ini, navigasi diatur menggunakan `Navigator` dengan metode `push`, `pushReplacement`, dan `pop`. `Navigator.push()` digunakan untuk menambah halaman baru di atas halaman yang ada pada stack navigasi. `Navigator.pushReplacement()` digunakan untuk menggantikan halaman saat ini dengan halaman lain, dan menghapus halaman sebelumnya dari stack, sehingga pengguna tidak bisa kembali ke halaman sebelumnya. `Navigator.pop()` digunakan untuk menutup halaman yang sedang terbuka, mengembalikan pengguna ke halaman sebelumnya.
