@@ -40,8 +40,8 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Product Name",
-                    labelText: "Product Name",
+                    hintText: "Nama Produk",
+                    labelText: "Nama Produk",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -54,10 +54,10 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Product name tidak boleh kosong!";
+                      return "Nama Produk tidak boleh kosong!";
                     }
                     if (value.length > 255) {
-                      return "Product name tidak boleh lebih dari 255 karakter!";
+                      return "Nama Produk tidak boleh lebih dari 255 karakter!";
                     }
                     return null;
                   },
@@ -67,8 +67,8 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Description",
-                    labelText: "Description",
+                    hintText: "Deskripsi",
+                    labelText: "Deskripsi",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -80,7 +80,7 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Description tidak boleh kosong!";
+                      return "Deskripsi tidak boleh kosong!";
                     }
                     return null;
                   },
@@ -90,8 +90,8 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Price",
-                    labelText: "Price",
+                    hintText: "Harga",
+                    labelText: "Harga",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -103,16 +103,16 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Price tidak boleh kosong!";
+                      return "Harga tidak boleh kosong!";
                     }
                     if (int.tryParse(value) == null) {
-                      return "Price harus berupa angka!";
+                      return "Harga harus berupa angka!";
                     }
                     if (_price < 0) {
-                      return "Price tidak boleh negatif!";
+                      return "Harga tidak boleh negatif!";
                     }
                     if (_price == 0) {
-                      return "Price tidak boleh nol!";
+                      return "Harga tidak boleh nol!";
                     }
                     return null;
                   },
@@ -122,8 +122,8 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Amount",
-                    labelText: "Amount",
+                    hintText: "Jumlah",
+                    labelText: "Jumlah",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -135,16 +135,16 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Amount tidak boleh kosong!";
+                      return "Jumlah tidak boleh kosong!";
                     }
                     if (int.tryParse(value) == null) {
-                      return "Amount harus berupa angka!";
+                      return "Jumlah harus berupa angka!";
                     }
                     if (_amount < 0) {
-                      return "Amount tidak boleh negatif!";
+                      return "Jumlah tidak boleh negatif!";
                     }
                     if (_amount == 0) {
-                      return "Amount tidak boleh nol!";
+                      return "Jumlah tidak boleh nol!";
                     }
                     return null;
                   },
@@ -154,8 +154,8 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Image URL",
-                    labelText: "Image URL",
+                    hintText: "URL Gambar",
+                    labelText: "URL Gambar",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -168,7 +168,7 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                   },
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return "Image URL tidak boleh kosong!";
+                      return "URL Gambar tidak boleh kosong!";
                     }
                     final uri = Uri.tryParse(value);
                     if (uri == null || !uri.isAbsolute) {
@@ -198,11 +198,11 @@ class _ProductEntryFormPageState extends State<ProductEntryFormPage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text('Product Name: $_productName'),
-                                    Text('Description: $_description'),
-                                    Text('Price: $_price'),
-                                    Text('Amount: $_amount'),
-                                    Text('Image URL: $_imageUrl')
+                                    Text('Nama Produk: $_productName'),
+                                    Text('Deskripsi: $_description'),
+                                    Text('Harga: $_price'),
+                                    Text('Jumlah: $_amount'),
+                                    Text('URL Gambar: $_imageUrl')
                                   ],
                                 ),
                               ),
