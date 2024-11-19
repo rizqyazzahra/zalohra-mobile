@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zalohra_mobile/screens/menu.dart';
+import 'package:zalohra_mobile/screens/list_productentry.dart';
 import 'package:zalohra_mobile/screens/productentry_form.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -60,6 +61,16 @@ class LeftDrawer extends StatelessWidget {
                   ));
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.format_list_bulleted_outlined),
+              title: const Text('Daftar Produk'),
+              onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+                  );
+              },
+          ),
           ],
       ),
     );
