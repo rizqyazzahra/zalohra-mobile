@@ -5,6 +5,7 @@ Proyek flutter sebagai tugas mata kuliah Pemrograman Berbasis Platform (PBP) Gan
 ### Daftar Isi
 * [Tugas 7: Elemen Dasar Flutter](#tugas-7-elemen-dasar-flutter)
 * [Tugas 8: Flutter Navigation, Layouts, Forms, and Input Elements](#tugas-8-flutter-navigation-layouts-forms-and-input-elements)
+* [Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter](tugas-9-integrasi-layanan-web-django-dengan-aplikasi-flutter)
 
 ---
 ## Tugas 7: Elemen Dasar Flutter
@@ -361,3 +362,17 @@ Saya mengatur tema aplikasi saya menggunakan `ThemeData` di root _widget_ `Mater
 
 ### 5. Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
 Pada aplikasi ini, navigasi diatur menggunakan `Navigator` dengan metode `push`, `pushReplacement`, dan `pop`. `Navigator.push()` digunakan untuk menambah halaman baru di atas halaman yang ada pada stack navigasi. `Navigator.pushReplacement()` digunakan untuk menggantikan halaman saat ini dengan halaman lain, dan menghapus halaman sebelumnya dari stack, sehingga pengguna tidak bisa kembali ke halaman sebelumnya. `Navigator.pop()` digunakan untuk menutup halaman yang sedang terbuka, mengembalikan pengguna ke halaman sebelumnya.
+
+---
+## Tugas 9: Integrasi Layanan Web Django dengan Aplikasi Flutter
+### 1. Jelaskan mengapa kita perlu membuat model untuk melakukan pengambilan ataupun pengiriman data JSON? Apakah akan terjadi _error_ jika kita tidak membuat model terlebih dahulu?
+
+### 2. Jelaskan fungsi dari library _http_ yang sudah kamu implementasikan pada tugas ini.
+
+### 3. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa _instance_ CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+### 4. Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
+
+### 5. Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+
+### 6. Langkah Implementasi _Checklist_
