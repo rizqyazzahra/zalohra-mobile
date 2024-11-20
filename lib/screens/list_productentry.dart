@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:zalohra_mobile/widgets/left_drawer.dart';
 import 'package:zalohra_mobile/models/product_entry.dart';
+import 'package:zalohra_mobile/screens/detail_product.dart';
 
 class ProductEntryPage extends StatefulWidget {
   const ProductEntryPage({super.key});
@@ -55,32 +56,113 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
             } else {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
-                itemBuilder: (_, index) => Container(
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  padding: const EdgeInsets.all(20.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "${snapshot.data![index].fields.name}",
-                        style: const TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
+                itemBuilder: (_, index) {
+                  var product = snapshot.data![index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetailPage(
+                            product: product,
+                          ),
                         ),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 6.0,
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.price}"),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.description}"),
-                      const SizedBox(height: 10),
-                      Text("${snapshot.data![index].fields.image}"),
-                      // const SizedBox(height: 10),
-                      // Text("${snapshot.data![index].fields.amount}")
-                    ],
-                  ),
-                ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                            ),
+                            child: Image.network(
+                              product.fields.image,
+                              height: 100,
+                              width: 150,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    product.fields.name,
+                                    style: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    'Rp${product.fields.price}',
+                                    style: const TextStyle(
+                                      color: Colors.green,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  // const SizedBox(height: 5),
+                                  // Text(
+                                  //   'Jumlah Produk: ${product.fields.amount}',
+                                  //   style: const TextStyle(
+                                  //     fontSize: 12.0,
+                                  //     color: Colors.grey,
+                                  //   ),
+                                  // ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    product.fields.description,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: const TextStyle(
+                                      fontSize: 12.0,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ProductDetailPage(
+                                              product: product,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text('Lihat Detail'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
               );
             }
           }
